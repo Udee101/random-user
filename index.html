@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <title>Random User</title>
+</head>
+
+<body>
+
+  <div id="app" v-cloak>
+    <div class="back-drop"></div>
+
+    <div class="details">
+
+      <img :src="picture" :alt="firstName">
+
+      <div v-if="showName">
+        <span>My Name is</span>
+        <h1>{{firstName}} {{lastName}}</h1>
+      </div>
+      <div v-if="showPhone">
+        <span>My phone number is</span>
+        <h1>{{phone}}</h1>
+      </div>
+      <div v-if="showEmail">
+        <span> My email is</span>
+        <h1> {{email}}</h1>
+      </div>
+
+      <div class="icons">
+        <button class="btn" @click="displayName()" :class=" {isActive: showName == true} "><i
+            class="fas fa-user"></i></button>
+        <button class="btn" @click="displayEmail" :class=" {isActive: showEmail == true} "><i
+            class="fas fa-envelope"></i></button>
+        <button class="btn" @click="displayPhone" :class=" {isActive: showPhone == true} "><i
+            class="fas fa-phone"></i></button>
+      </div>
+
+      <button :class="gender" @click="getUser()">Get Random User</button>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
